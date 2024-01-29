@@ -1,0 +1,53 @@
+.Navbar-container {
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  height: 5rem;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);;
+  transition: all 0.3s ease-in;
+}
+
+.Navbar-container:hover {
+  background-color: white;
+  color: black;
+}
+
+.Logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.Login-button-wrapper {
+  display: flex;
+  justify-content: end;
+  padding-right: 3rem;
+  gap: 1.5rem;
+}
+.Login-button-wrapper button {
+  color: var(--background-color);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.svg-path {
+  fill: black;
+}
+
+.Navbar-container:hover .svg-path {
+  fill: #2a2730;
+}
+.Navbar-container:hover button {
+  color: var(--theme-black);
+  font-style: underline;
+}
+.vertical-line {
+  border-left: 2px solid #000; /* Adjust the color and width as needed */
+  height: 1.5rem; /* Adjust the height as needed */
+}

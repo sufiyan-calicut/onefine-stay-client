@@ -21,9 +21,18 @@
 
   .cover-div p {
     width: 28rem;
-    color: rgba(128, 128, 128, 0.432);
+    color: rgba(31, 30, 30, 0.897);
+    font-size: 1rem;
+    text-align: center;
+    font-family: var(--p-font);
+    font-weight: 500;
   }
   .welcome-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #0eb4ca;;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--p-font);
+    font-size: 1rem;
+    font-weight: 600;
   }

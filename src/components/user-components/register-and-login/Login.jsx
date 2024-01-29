@@ -3,8 +3,9 @@ import { toast } from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../../../reduxToolkit/alertsReducer';
-import Navbar from '../partials/header/Navbar';
+// import Navbar from '../partials/header/Navbar';
 import { userApi } from '../../../api/userApi';
+import Navbar from '../partials/Nav/Navbar';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const Login = () => {
   return (
     <>
       <Navbar/>
-      <div className='bg-gray-100 rounded-md  h-auto w-64 p-2 left-0 top-0 m-10 absolute'>
+      <div >
         {/* <div className='border rounded-md p-4'>
           <p className='text-gray-600 font-serif mb-2'>
             Use these login credentials for quick access (for recruiters' convenience):

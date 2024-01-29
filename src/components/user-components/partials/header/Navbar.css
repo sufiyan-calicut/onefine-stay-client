@@ -1,114 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500&display=swap');
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fcf9f9;
-    border-bottom: 1px solid rgb(231, 227, 227);
-    padding: 20px;
-    /* margin-bottom: 60px; */
-    top: 0 !important;
-    box-shadow: 4px 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
-  }
-  .searchInput{
-    border: 1px solid rgb(221 204 204 / 84%) !important ; 
-  }
-  .searchInput :focus{
-    border: 1px solid rgb(221 204 204 / 84%) !important ; 
-  }
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-color: #fcf9f9;
+  padding: 18px;
+  /* margin-bottom: 60px; */
+  top: 0 !important;
+  box-shadow: 4px 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
+}
+.searchInput {
+  /* border: 1px solid rgb(221 204 204 / 84%) !important ; */
+}
+.searchInput :focus {
+  /* border: 1px solid rgb(221 204 204 / 84%) !important ; */
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.navbar-icons {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
   
-  .navbar-logo img {
-    height: 40px;
-  }
+}
+
+.navbar-icons svg {
+  margin-left: 10px;
+  cursor: pointer;
   
+  font-size: 20px;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
   .navbar-links {
-    display: flex;
+    flex-grow: 1;
     justify-content: center;
-    align-items: center;
+    margin: 0 50px;
   }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: black;
-    margin: 0 10px;
-    font-size: 16px;
-  }
-  
+
   .navbar-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 50px;
   }
-  
-  .navbar-icons svg {
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 20px;
+
+  .dropdown-links {
+    display: none;
   }
-  
+}
+
+@media (max-width: 767px) {
+  .navbar-links {
+    display: none;
+  }
+
   .navbar-menu {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: white;
-    border: 1px solid lightgray;
-    padding: 10px;
+  }
 
-    
+  .navbar-menu a {
+    margin: 10px 0;
   }
-  
-  @media (min-width: 768px) {
-    .navbar-links {
-      flex-grow: 1;
-      justify-content: center;
-      margin: 0 50px;
-    }
-    
-    .navbar-icons {
-      margin-right: 50px;
-    }
-    
-    .dropdown-links {
-      display: none;
-    }
-  }
-  
-  @media (max-width: 767px) {
-  
-    .navbar-links {
-      display: none;
-    }
-    
-    .navbar-menu {
-      display: flex;
-    }
-    
-    .navbar-menu a {
-      margin: 10px 0;
-     
-    }
 
-    
-    
-    .navbar-icons {
-      margin-right: 10px;
-    }
+  .navbar-icons {
+    margin-right: 10px;
   }
-  
-  .dropdown {
-    transition: height 0.5s ease;
-  }
-  
-  .dropdown-content {
-    height: 0;
-    overflow: hidden;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    height: auto;
-  }
-  .react-calendar__tile--range{
-    color:white;
-    background-color: rgba(37, 106, 211, 0.87) !important;
-  }
+}
+
+.dropdown {
+  transition: height 0.5s ease;
+}
+
+.dropdown-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+  height: auto;
+}
+.react-calendar__tile--range {
+  color: white;
+  background-color: rgba(37, 106, 211, 0.87) !important;
+}
+
+
