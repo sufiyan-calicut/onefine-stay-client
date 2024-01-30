@@ -9,6 +9,7 @@ import RoomSelection from './RoomSelection';
 import MyCalendar from './Calender';
 import profile from '../../../../../public/images/profile.png';
 import './Navbar.css';
+import { FiSearch } from 'react-icons/fi';
 import { connect } from 'react-redux';
 
 const Navbar = () => {
@@ -103,7 +104,7 @@ const Navbar = () => {
 
   return (
     <nav className='navbar bg-white z-50 w-46 md:w-full md:pl-10 md:fixed '>
-      <div >
+      <div onClick={() => navigate('/')} className='cursor-pointer'>
         {/* <h1 className='font-bold cursor-default text-orange-700' onClick={() => navigate('/')}>
           Roomie.com
         </h1> */}
@@ -120,7 +121,7 @@ const Navbar = () => {
         <div className='navbar-links cursor-default'>
           <div className=''>
             <input
-              className='searchInput  flex items-center justify-center text-center w-60 font-normal text-sm tracking-wider text-md outline-none border-0'
+              className='searchInput rounded-l-3xl   flex items-center justify-center text-center w-60 font-normal text-sm tracking-wider text-md fontFm '
               placeholder={'ex: trivandrum'}
               type='text'
               defaultValue={searchData?.location}
@@ -138,7 +139,7 @@ const Navbar = () => {
               setOpenRoomDiv(false);
             }}
           >
-            <div className='flex text-xs'>
+            <div className='flex text-xs text-center fontFm'>
               {searchData?.checkInDate} - {searchData?.checkOutDate}
             </div>
             {/* <MyCalendar /> */}
@@ -149,7 +150,7 @@ const Navbar = () => {
             className=' select-none cursor-pointer md:h-10 md:w-48 border px-2 py-1 border-gray-300 flex flex-col gap-0 items-center justify-center border-l-0'
             onClick={handleRoomDiv}
           >
-            <p className=' text-sm'>
+            <p className=' text-sm fontFm'>
               {room} Room, {sum} Guests
             </p>
             {openRoomDiv && (
@@ -161,10 +162,10 @@ const Navbar = () => {
 
           <div className=''>
             <button
-              className='bg-cyan-600 h-10 text-sm hover:bg-cyan-800 duration-300 text-gray-100 px-3 py-1 rounded-r-sm'
+              className='bg-cyan-600 h-10 w-12 text-sm p-2 hover:bg-cyan-800 duration-300 text-gray-100 px-3 py-1 rounded-r-3xl'
               onClick={handleSubmit}
             >
-              search
+              <FiSearch style={{ fontSize: '20px', color: 'white' }} />
             </button>
           </div>
         </div>

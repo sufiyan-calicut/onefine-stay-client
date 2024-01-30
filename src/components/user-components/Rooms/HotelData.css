@@ -1,0 +1,28 @@
+.hotelImg {
+    transition: transform 0.5s ease-in-out;
+}
+
+.hotelImg:hover {
+    transform: scale(1.1, 1.1); /* Scale the element to 120% of its original size when hovered over */
+}
+
+
+.font-fm{
+    font-family:var(--p-font);
+   
+}
+
+.checkbox{
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+}
+
+.back-color{
+    background-color: #EEEDEB;
+}
+
+.booking-card{
+    background-color: #424769;
+}

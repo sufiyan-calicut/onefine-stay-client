@@ -10,6 +10,7 @@ import { RxCrossCircled } from 'react-icons/rx';
 import { BsStar } from 'react-icons/bs';
 import { MdCurrencyRupee } from 'react-icons/md';
 import { toast } from 'react-hot-toast';
+import './HotelData.css';
 
 // import  {Razorpay}  from 'razorpay';
 
@@ -154,15 +155,17 @@ function SingleRoom() {
   return (
     <>
       <Navbar />
-      <div className='main div   w-full h-full md:mt-20 left-0 right-0'>
-        <div className={'md:h-[30rem] flex flex-col md:flex-row bg-yellow-20 gap-1 md:mx-28 md:p-8 p-2 mb-0 m-4 '}>
-          <div className='largeImage w-full md:w-3/4  md:h-full bg-orange-30'>
+      <div className='main div   w-full h-full md:mt-20 left-0 right-0 bg-gray-100'>
+        <div
+          className={'md:h-[30rem] flex flex-col md:flex-row bg-yellow-20 gap-1 md:mx-28 md:p-8 p-2 mb-0 m-4  md:pb-0'}
+        >
+          <div className=' largeImage w-full md:w-3/4  md:h-full bg-orange-30 shadow-xl cursor-pointer rounded-xl overflow-hidden '>
             {hotel?.images ? (
               <img
                 onLoad={handleLoading}
                 src={hotel?.images[position]}
                 alt='Large Image'
-                className='h-full w-full border r'
+                className='h-full w-full border r '
                 loading='lazy'
               />
             ) : (
@@ -180,8 +183,8 @@ function SingleRoom() {
             )}
           </div>
 
-          <div className='imageOptions flex flex-row md:flex-col gap-0.5 md:w-1/4 h-1/4 md:h-full  '>
-            <div className='optionOne w-1/3 md:w-2/3 h-24  md:h-1/3'>
+          <div className='imageOptions  flex flex-row md:flex-col gap-0.5 md:w-1/4 h-1/4 md:h-full  '>
+            <div className='optionOne w-1/3 md:w-2/3 h-24  md:h-1/3 rounded-xl overflow-hidden cursor-pointer shadow-2xl'>
               {hotel?.images ? (
                 <img
                   onLoad={handleLoading}
@@ -204,7 +207,7 @@ function SingleRoom() {
                 </div>
               )}
             </div>
-            <div className='optionTwo w-1/3 md:w-2/3 h-24 md:h-1/3'>
+            <div className='optionTwo w-1/3 md:w-2/3 h-24 md:h-1/3 rounded-xl overflow-hidden cursor-pointer shadow-2xl'>
               {hotel?.images ? (
                 <img
                   onLoad={handleLoading}
@@ -227,13 +230,13 @@ function SingleRoom() {
                 </div>
               )}
             </div>
-            <div className='optionThree w-1/3 md:w-2/3 h-24 md:h-1/3'>
+            <div className='optionThree w-1/3 md:w-2/3 h-24 md:h-1/3 rounded-xl overflow-hidden cursor-pointer shadow-2xl '>
               {hotel?.images ? (
                 <img
                   onLoad={handleLoading}
-                  src={hotel?.images[1]}
+                  src={hotel?.images[2]}
                   alt='Large Image'
-                  onClick={() => setPosition(1)}
+                  onClick={() => setPosition(2)}
                   loading='lazy'
                   className='h-full w-full'
                 />
@@ -253,75 +256,79 @@ function SingleRoom() {
           </div>
         </div>
 
-        <div className='center-div   flex flex-col md:flex-row  h-auto gap-6 mt-0  m-3 md:p-4  md:my-4 md:mx-16    '>
+        <div className='center-div   flex flex-col md:flex-row  h-auto  mt-0  m-3 md:p-4   md:mx-16    '>
           <div className='largeImage   md:w-4/6 h-3/4 md:h-full    '>
-            <div className='  leading-loose mb-4 border rounded-md border-cyan-800 h-auto my-10 md:p-10 p-4 overflow-auto  '>
-              <h1 className='text-3xl font-  border-cyan-700 mb-4  w-fit font-sans text-cyan-900'>
-                {hotel?.hotelName}
-              </h1>
-              <p className='text-gray-600  '>{hotel?.description}</p>
+            <div className='  leading-loose mb-4  rounded-lg  h-auto my-6 md:p-10 p-4 overflow-auto bg-white shadow-xl '>
+              <h1 className='text-3xl font-fm   mb-4 font-semibold w-fit  text-cyan-700 '>{hotel?.hotelName}</h1>
+              <p className='text-black text-md  font-fm  '>{hotel?.description}</p>
             </div>
-            <div className='  h-1/2 my-4 md:my-10 md:p-10 p-4 leading-10 border rounded-md border-cyan-800 '>
-              <h1 className='text-xl md:font-semibold   w-fit text-cyan-900'>Amnities</h1>
-              <div className='grid gap-4 m-6 grid-cols-2 md:grid-cols-4 items-center justify-around text-gray-600'>
+            <div className='  h-1/2 my-4 md:my-4 md:p-10 p-4 leading-10  rounded-lg back-color shadow-lg bg-white '>
+              <h1 className='text-xl md:font-semibold  w-fit text-cyan-800 font-fm tracking-wider'>Amnities</h1>
+              <div className='grid gap-4 m-6 grid-cols-2 md:grid-cols-4 items-center justify-around text-black font-fm'>
                 {hotel?.amnities.map((amnity, i) => {
                   return (
-                    <div key={i} className='flex  items-center gap-2'>
+                    <div key={i} className='flex  items-center gap-2 font'>
                       <BsStar />
-                      <p>{amnity}</p>
+                      {amnity.length && <p className='font-fm font-lg'>{`${amnity.split(/(?=[A-Z])/).join(' ')}`}</p>}
                     </div>
                   );
                 })}
               </div>
             </div>
-            <div className=' mt-4 md:mt-10 gap-2  h-1/2 md:p-10 p-2 leading-10 border rounded-md border-cyan-800 '>
-              <h1 className='text-xl font-semibold   w-fit text-cyan-900 '>Rules for guests</h1>
-              <div className='flex flex-col gap-4 m-6  text-gray-600'>
+            <div className=' mt-4 md:mt-1 gap-2  h-1/2 md:p-10 p-2 leading-10 bg-white rounded-lg  shadow-lg'>
+              <h1 className='text-2xl font-semibold   w-fit text-cyan-900 font-fm tracking-wider '>Rules for guests</h1>
+              <div className='flex flex-col gap-4 m-6  text-gray-600 font-fm'>
                 {hotel?.rules.map((rule, i) => {
                   return (
-                    <div key={i} className='flex gap-2 items-center'>
+                    <div key={i} className='flex gap-2 items-center font-fm text-md text-black '>
                       <RxCrossCircled />
-                      <p>{rule}</p>
+
+                      <p className='font-fm '>{rule}</p>
                     </div>
                   );
                 })}
               </div>
             </div>
           </div>
-          <div className='md:booking   sticky top-10  tracking-wider  flex flex-row  md:flex-col   md:w-2/6 h-full  md:h-screen  rounded-3xl border-gray-100 '>
-            <div className='sticky top-20 h-fit w-/4 bg-gray-5 border left-0 right-0 mx-auto md:mx-1 md:mt-16  shadow-lg rounded-md p-2'>
+          <div className='md:booking   sticky top-10  tracking-wider  flex flex-row  md:flex-col   md:w-2/6 h-full  md:h-screen  rounded-3xl  px-3 '>
+            <div className='sticky top-20 h-fit   left-0 right-0 mx-auto md:mx-1 md:mt-6  shadow-xl rounded-xl p-4 bg-white'>
               <div className=' flex flex-row justify-between m-4'>
                 <h1 className='text-sm md:text-xl font-semibold  '>
-                  <span className='flex items-center p-2'>
+                  <span className='flex items-center p-2 font-fm text-black tracking-wider text-xl'>
                     {' '}
                     <MdCurrencyRupee />
-                    {hotel?.price} <span className='text-gray-500 font-thin'>/night</span>
-                    <span className='text-gray-600 text-end text-sm bg-gray-400 '> </span>
+                    {hotel?.price} <span className='text-black font-thin text-sm'>/night</span>
                   </span>
                 </h1>
-                <h4 className=''>{/* * 4.5 <span className='font-thin text-gray-600 right-'>(453)</span> */}</h4>
               </div>
-              <div className='flex flex-col bg-gray-20 h-40  gap-3 '>
-                <div className=' p-2 my-3 flex flex-col left-0 right-0 mx-auto rounded-lg border   justify-around'>
-                  <div className='p-2 border-b h-10 md:font-semibold flex text-xs items-center tracking-wider px-6  text-gray-600 '>
-                    {totalStayDays} Days , {totalGuest} Guests , {room} Room
+              <div className='flex flex-col bg-gray-20 h-40  gap-3  '>
+                <div className=' p-2 my-3 flex flex-col left-0 right-0 mx-auto rounded-lg bg-white shadow-md hover:shadow-lg   justify-around'>
+                  <div className='p-2 h-10 md:font-semibold flex text-xs items-center tracking-wider px-6  text-gray-600 text-center  '>
+                    <p className='w-full  text-cyan-700 font-fm tracking-wide text-lg'>
+                      {totalStayDays} Days , {totalGuest} Guests , {room} Room
+                    </p>
                   </div>
-                  <div className='p-2 h-10  flex text-xs items-center tracking-wider px-6 text-gray-600 '>
-                    {searchData?.checkInDate} - {searchData.checkOutDate}
+                  <div className='border w-4/5 left-0 right-0 mx-auto'></div>
+                  <div className='p-2 h-10  flex text-xs items-center tracking-wider px-6 text-gray-600 text-center '>
+                    <p className=' text-cyan-700 font-fm tracking-wide text-md'>
+                      {' '}
+                      {searchData?.checkInDate} - {searchData.checkOutDate}
+                    </p>
                   </div>
                 </div>
-                <div className=' flex items-center px-6 font-sm my-4 '>
-                  <h1 className='flex items-center px-2  w-fit'>Total</h1>
-                  <span className='  w-full flex items-center  '>
+                <div className=' flex items-center px-6 font-sm my-4 font-semibold '>
+                  <h1 className='flex items-center px-2  w-fit font-fm tracking-wide '>Total</h1>
+                  <span className='  w-full flex items-center font-fm tracking-wide '>
                     {' '}
                     <MdCurrencyRupee />
                     {totalPrice}
                   </span>
-                  <h1>wallet:{wallet}</h1>
+                  <h1 className='font-fm tracking-wide'>wallet:{wallet}</h1>
                 </div>
               </div>
-              <h1 className='px-5 tracking-tight mt-8 mx-3'>
-                Cash to be pay: <span className='text-red-900'>{cashTobePay > 0 ? cashTobePay : 0}</span>
+              <h1 className='px-5  mt-8 mx-3 font-fm tracking-wide'>
+                Cash to be pay:{' '}
+                <span className='text-red-700 text-xl font-bold fontfm'>{cashTobePay > 0 ? cashTobePay : 0}</span>
               </h1>
               <div className='bg-blac p-4 flex justify-center '>
                 <button

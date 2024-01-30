@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import myImage from '../../../../../public/images/coverpic.jpg';
 import myImage from '../../../../../public/images/Hotel Check-in.jfif';
-import location from '../../../../../public/images/map.png';
-import explore from '../../../../../public/images/explore.png';
+import location from '../../../../../public/images/Hotel booking concept in flat design.jfif';
+import explore from '../../../../../public/images/2,755,600+ Travel Stock Illustrations, Royalty-Free Vector Graphics & Clip Art.jfif';
 import './HomeMain.css';
 import { useDispatch, useSelector } from 'react-redux';
 import RoomSelection from '../../partials/header/RoomSelection';
@@ -83,7 +83,7 @@ function HomeMain() {
     <>
       {isMobile && (
         <div className=' flex flex-col  items-center justify-center mt-20'>
-          <div className='bg-white h-auto w-fit'>
+          <div className=' h-auto w-fit'>
             <input
               className='w-full text-center text-xs text-gray-500'
               defaultValue={searchData?.location}
@@ -160,17 +160,21 @@ function HomeMain() {
               guest and look forward to providing you with a comfortable and memorable stay.
             </p>
           </div>
-          <div className='md:w-1/2 coverpic h- w-full object-cover '>
+          <div className='md:w-1/2 coverpic h- w-full object-cover  '>
             <img loading='lazy' className='h-auto w-full object-cover coverpic bg-white ' src={myImage} />
           </div>
         </div>
       </div>
-      <div className='mt-16 md:mx-20'>
-        <div className='flex flex-col md:flex-row items-center justify-center h- md:justify-between bg-white cover-div  '>
+      <div className='mt-16 md:mx-20 '>
+        <div className='flex flex-col md:flex-row items-center justify-center h- md:justify-between bg-white cover-div   '>
           <div className='md:w-1/2 coverpic h- w-full object-cover '>
-            <img loading='lazy' className='h-auto w-full object-cover coverpic bg-white ' src={explore} />
+            <img
+              loading='lazy'
+              className='h-auto w-auto max-h-full max-w-full object-cover coverpic bg-white '
+              src={explore}
+            />
           </div>
-          <div className='text-center md:text-left mb-10 md:mb-0  '>
+          <div className='text-center md:text-left mb-10 md:mb-0 '>
             <h3 className='text-md  md:text-3xl  mb-4 welcome-text'>Explore with Confidence</h3>
             <p className=' text-sm md:text-lg text-sky-300 px-16 md:p-1'>
               Discover your dream destination and plan your vacation with ease using our hotel booking app. We assure a
@@ -180,7 +184,7 @@ function HomeMain() {
           </div>
         </div>
       </div>
-      <div className='mb-16 md:mx-20  bg-yellow-500'>
+      <div className='mb-16 md:mx-20 '>
         <div className='flex flex-col md:flex-row items-center justify-center h- md:justify-between bg-white cover-div  '>
           <div className='text-center md:text-left mb-10 md:mb-0  '>
             <h3 className='text-md  md:text-3xl    mb-4 welcome-text'>Booking at Your Fingertips</h3>
@@ -196,6 +200,11 @@ function HomeMain() {
           </div>
         </div>
       </div>
+      <footer className='p-4 w-full rounded-t-xl flex justify-center items-center  tracking-wider bg-white shadow-xl '>
+        <div className=' border-t p-4 w-full mx-10 text-center text-sm border-gray-700'>
+          ©2024 Onefinestays Enterprises Pvt. Ltd. – All rights reserved.
+        </div>
+      </footer>
     </>
   );
 }

@@ -12,6 +12,7 @@ import {
   updateAmnities,
 } from '../../../reduxToolkit/searchSlice';
 import HotelData from './HotelData';
+import './HotelData.css';
 
 // import HotelData from './HotelData';
 // const HotelData = lazy(() => import('./HotelData'));
@@ -70,10 +71,10 @@ const HotelList = () => {
   };
 
   return (
-    <div className=''>
-      <div className=' h-auto w-screen flex bg-white md:pt-20 '>
-        <div className=' h-auto w-92 bg-white  border-gray-300 p-6 border-r '>
-          <div className='sticky top-32'>
+    <div className='bg-gray-100'>
+      <div className=' h-auto w-screen flex md:pt-20   '>
+        <div className=' h-auto w-96 bg-white  border-gray-300 p-6 border-r shadow-2xl '>
+          <div className='sticky top-32 '>
             <h1 className='font-sans font-bold text-lg'>Filters</h1>
             {/* <div className='border-b p-4 h-72'>
               <div>
@@ -107,110 +108,110 @@ const HotelList = () => {
               </select>
             </div>
             <div className='px-4 h-auto grid grid-cols-2 gap-2 border mt-10 py-10'>
-              <h1 className='border-b w-fit'> Hotel Facilites</h1>
+              <h1 className='border-b fontfm mb-2 '> Hotel Facilites</h1>
               <h1></h1>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.internet}
                     onChange={handleCheckboxChange}
                     name='internet'
                     id='internet'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Internet</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Internet</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.bathTub}
                     onChange={handleCheckboxChange}
                     name='bathTub'
                     id='bathTub'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Bath Tub</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Bath Tub</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.locker}
                     onChange={handleCheckboxChange}
                     name='locker'
                     id='locker'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>locker</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>locker</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.laundry}
                     onChange={handleCheckboxChange}
                     name='laundry'
                     id='laundry'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>laundry</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>laundry</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.dryer}
                     onChange={handleCheckboxChange}
                     name='dryer'
                     id='dryer'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Dryer</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Dryer</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.privateKitchen}
                     onChange={handleCheckboxChange}
                     name='privateKitchen'
                     id='privateKitchen'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Private Kitchen</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Private Kitchen</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.privatePool}
                     onChange={handleCheckboxChange}
                     name='privatePool'
                     id='privatePool'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Private Pool</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Private Pool</span>
                 </label>
               </div>
-              <div className='flex flex-row items-center gap-4 '>
-                <label htmlFor='checkbox' className='flex items-center gap-3'>
+              <div className='flex flex-row items-center mb-2  '>
+                <label htmlFor='checkbox' className='flex items-center '>
                   <input
                     checked={amnities.antiTheftKey}
                     onChange={handleCheckboxChange}
                     name='antiTheftKey'
                     id='antiTheftKey'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox h-5 w-5 text-blue-600 checkbox'
                   />
-                  <span className='ml-2 text-gray-600'>Anti Theft Key</span>
+                  <span className='ml-2 text-gray-600 text-md fontfm '>Anti Theft Key</span>
                 </label>
               </div>
 

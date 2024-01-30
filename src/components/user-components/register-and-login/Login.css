@@ -1,0 +1,10 @@
+.offwhite{
+    background-color: #f7f7f7;
+}
+.fontfm{
+    font-family:var(--p-font);
+}
+
+.loginCard input{
+    border-radius: 2rem;
+}

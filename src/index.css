@@ -172,8 +172,9 @@ body a {
 /* antd override */
 
 input {
-  border-radius: 2px !important;
-  border: 1px solid rgba(128, 128, 128, 0.616) !important;
+  /* border-radius: 2px !important; */
+  border: 1px solid rgba(128, 128, 128, 0.342) !important;
+  
   height: 40px !important;
 }
 

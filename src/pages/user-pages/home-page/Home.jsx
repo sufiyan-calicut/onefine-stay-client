@@ -14,7 +14,7 @@ function Home() {
     <div className='w-screen overflow-x-hidden h-auto'>
       <Navbar />
       <HomeMain />
-      <Footer />
+      
     </div>
   );
 }

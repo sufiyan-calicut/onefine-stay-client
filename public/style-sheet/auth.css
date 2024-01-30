@@ -64,16 +64,16 @@
 /* antd override */
 
 input {
-  border-radius: 2px !important;
+  /* border-radius: 2px !important;
   border: 1px solid rgba(128, 128, 128, 0.616) !important;
-  height: 40px !important;
+  height: 40px !important; */
 }
 
-input:focus {
+/* input:focus {
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid grey !important;
-}
+} */
 
 label {
   font-size: 16px !important;
