@@ -290,7 +290,7 @@ function SingleRoom() {
               </div>
             </div>
           </div>
-          <div className='md:booking   sticky top-10  tracking-wider  flex flex-row  md:flex-col   md:w-2/6 h-full  md:h-screen  rounded-3xl  px-3 '>
+          <div className='md:booking  mt-2 sm:m-0  sticky top-10  tracking-wider  flex flex-row  md:flex-col   md:w-2/6 h-full  md:h-screen  rounded-3xl  px-3 '>
             <div className='sticky top-20 h-fit   left-0 right-0 mx-auto md:mx-1 md:mt-6  shadow-xl rounded-xl p-4 bg-white'>
               <div className=' flex flex-row justify-between m-4'>
                 <h1 className='text-sm md:text-xl font-semibold  '>

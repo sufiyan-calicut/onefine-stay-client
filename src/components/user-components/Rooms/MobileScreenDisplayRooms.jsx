@@ -90,81 +90,138 @@ const MobileScreenDisplayRooms = () => {
         onClick={() => {
           setFilterDiv(!filterDiv);
         }}
-        className=' left-4 z-50 top-4 sticky bg-cyan-900  text-gray-50 p-2 rounded-full w-8 h-8 flex items-center justify-center'
+        className=' left-4 z-50 top-20 fixed bg-cyan-900  text-gray-50 p-2 rounded-full w-8 h-8 flex items-center justify-center'
       >
         {filterDiv ? <BiArrowBack /> : <AiOutlineSearch />}
       </button>
       {filterDiv && (
         <div
-          className={`fixed top-0 left-0 bottom-0 overflow-scroll  focus:outline-none bg-white p-2 transform transition-transform duration-300 ${
+          className={`fixed top-0 left-0 bottom-0 overflow-scroll  focus:outline-none bg-white p-2 transform transition-transform duration-300 w-full max-w-md ${
             filterDiv ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <div className=' flex flex-col  items-center justify-center mt-8'>
-            <div className='bg-white h-auto w-fit'>
-              <input
-                className='w-full text-center text-xs text-gray-500'
-                defaultValue={searchData?.location}
-                placeholder={'search by city or hotel'}
+          <div className=' w-3/4 mx-auto my-10'>
+            <input
+              className='w-full text-center text-xs text-gray-500 fontfm tracking-wider rounded-xl'
+              defaultValue={searchData?.location}
+              placeholder={'ex: Trivandrum'}
+              type='text'
+              onChange={(e) => dispatch(setLocation(e.target.value))}
+            />
+            <div className='flex  w-full'>
+              <div
+                className='cursor-pointer flex h-10 fontfm items-center justify-center border rounded-xl my-2 border-gray-300 w-1/2 text-xs tracking-tighter text-center p-1'
+                placeholder={''}
                 type='text'
-                onChange={(e) => {
-                  localStorage.setItem('location', e.target.value);
-                  dispatch(setLocation(e.target.value));
+                ref={calanderRef}
+                onClick={() => {
+                  setOpenRoomDiv(false);
+                  setOpenCalenderDiv(!openCalenderDiv);
                 }}
-              />
-              <div className='flex '>
-                <div
-                  className='cursor-pointer flex h-10 items-center justify-center border-x border-gray-400 w-40 text-xs tracking-tighter text-center p-1'
-                  placeholder={''}
-                  type='text'
-                  ref={calanderRef}
-                  onClick={() => {
-                    setOpenRoomDiv(false);
-                    setOpenCalenderDiv(!openCalenderDiv);
-                  }}
-                >
-                  {' '}
-                  {searchData?.checkInDate} - {searchData?.checkOutDate}
-                </div>
-                <div
-                  ref={divRef}
-                  className='cursor-pointer flex h-10 items-center justify-center border-x border-gray-400 w-40 text-xs tracking-tighter text-center'
-                  placeholder={''}
-                  type='text'
-                  onClick={() => {
-                    setOpenRoomDiv(!openRoomDiv);
-                    setOpenCalenderDiv(false);
-                  }}
-                >
-                  {room} Room, {sum} Guests
-                </div>
-              </div>
-              <div className=' mx-8'>
-                {openRoomDiv && (
-                  <div className='text-xs'>
-                    <RoomSelection />
-                  </div>
-                )}
-              </div>
-              <div className=' mx-8'>
-                {openCalenderDiv && (
-                  <div className='text-xs'>
-                    <MyCalendar />
-                  </div>
-                )}
-              </div>
-              <button
-                className='bg-cyan-500 w-full py-2 hover:bg-cyan-800 text-gray-50 hover:text-gray-50 duration-300 '
-                onClick={handleSearch}
               >
-                search
-              </button>
+                {' '}
+                {searchData?.checkInDate} - {searchData?.checkOutDate}
+              </div>
+              <div
+                ref={divRef}
+                className='cursor-pointer flex h-10 first-letter: items-center fontfm justify-center rounded-xl ml-1 my-2 border border-gray-300 w-1/2   text-xs tracking-tighter text-center'
+                placeholder={''}
+                type='text'
+                onClick={() => {
+                  setOpenRoomDiv(!openRoomDiv);
+                  setOpenCalenderDiv(false);
+                }}
+              >
+                {room} Room, {sum} Guests
+              </div>
             </div>
+            <div className=' mx-8'>
+              {openRoomDiv && (
+                <div className='text-xs'>
+                  <RoomSelection />
+                </div>
+              )}
+            </div>
+            <div className=' mx-8'>
+              {openCalenderDiv && (
+                <div className='text-xs'>
+                  <MyCalendar />
+                </div>
+              )}
+            </div>
+            <button
+              className='bg-cyan-900 fontfm tracking-wider font-semibold rounded-xl w-full py-2 hover:bg-cyan-800 text-gray-50 hover:text-gray-50 duration-300 '
+              onClick={handleSearch}
+            >
+              Search
+            </button>
           </div>
+
+          {/* <div className=' flex flex-col  items-center justify-center mt-8'>
+              <div className='bg-white h-auto w-fit'>
+                <input
+                  className='w-full text-center text-xs text-gray-500'
+                  defaultValue={searchData?.location}
+                  placeholder={'search by city or hotel'}
+                  type='text'
+                  onChange={(e) => {
+                    localStorage.setItem('location', e.target.value);
+                    dispatch(setLocation(e.target.value));
+                  }}
+                />
+                <div className='flex '>
+                  <div
+                    className='cursor-pointer flex h-10 items-center justify-center border-x border-gray-400 w-40 text-xs tracking-tighter text-center p-1'
+                    placeholder={''}
+                    type='text'
+                    ref={calanderRef}
+                    onClick={() => {
+                      setOpenRoomDiv(false);
+                      setOpenCalenderDiv(!openCalenderDiv);
+                    }}
+                  >
+                    {' '}
+                    {searchData?.checkInDate} - {searchData?.checkOutDate}
+                  </div>
+                  <div
+                    ref={divRef}
+                    className='cursor-pointer flex h-10 items-center justify-center border-x border-gray-400 w-40 text-xs tracking-tighter text-center'
+                    placeholder={''}
+                    type='text'
+                    onClick={() => {
+                      setOpenRoomDiv(!openRoomDiv);
+                      setOpenCalenderDiv(false);
+                    }}
+                  >
+                    {room} Room, {sum} Guests
+                  </div>
+                </div>
+                <div className=' mx-8'>
+                  {openRoomDiv && (
+                    <div className='text-xs'>
+                      <RoomSelection />
+                    </div>
+                  )}
+                </div>
+                <div className=' mx-8'>
+                  {openCalenderDiv && (
+                    <div className='text-xs'>
+                      <MyCalendar />
+                    </div>
+                  )}
+                </div>
+                <button
+                  className='bg-cyan-500 w-full py-2 hover:bg-cyan-800 text-gray-50 hover:text-gray-50 duration-300 '
+                  onClick={handleSearch}
+                >
+                  search
+                </button>
+              </div>
+            </div> */}
           <div>
-            <div className='input-block font-sans p-4 w-full flex justify-center'>
+            <div className='input-block font-sans p-4 w-full  flex justify-center'>
               <select
-                className=' px-4 py-2 w-48 border left-0 right-0 mx-auto  '
+                className=' px-4 rounded-md py-2 w-48 border border-gray-400 left-0 right-0 mx-auto   '
                 name='category'
                 id='category'
                 onChange={(e) => {
@@ -176,8 +233,8 @@ const MobileScreenDisplayRooms = () => {
                 <option value={1}>Price High to Low</option>
               </select>
             </div>
-            <div className='px-4 h-auto grid grid-cols-2 gap-2 border mt-10 py-10'>
-              <h1 className='border-b w-fit'> Hotel Facilites</h1>
+            <div className='px-4 h-auto grid  gap-2 border mt-10 py-10 rounded-xl  shadow-xl mx-auto w-3/4'>
+              <h1 className='border-b w-fit fontfm '> Hotel Facilites</h1>
               <h1></h1>
               <div className='flex flex-row items-center gap-4 '>
                 <label htmlFor='checkbox' className='flex items-center gap-3'>
@@ -187,9 +244,9 @@ const MobileScreenDisplayRooms = () => {
                     name='internet'
                     id='internet'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Internet</span>
+                  <span className='ml-2 fontfm text-gray-600'>Internet</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -200,9 +257,9 @@ const MobileScreenDisplayRooms = () => {
                     name='bathTub'
                     id='bathTub'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Bath Tub</span>
+                  <span className='ml-2 fontfm text-gray-600'>Bath Tub</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -213,9 +270,9 @@ const MobileScreenDisplayRooms = () => {
                     name='locker'
                     id='locker'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>locker</span>
+                  <span className='ml-2 fontfm text-gray-600'>locker</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -226,9 +283,9 @@ const MobileScreenDisplayRooms = () => {
                     name='laundry'
                     id='laundry'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>laundry</span>
+                  <span className='ml-2 fontfm text-gray-600'>laundry</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -239,9 +296,9 @@ const MobileScreenDisplayRooms = () => {
                     name='dryer'
                     id='dryer'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Dryer</span>
+                  <span className='ml-2 fontfm text-gray-600'>Dryer</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -252,9 +309,9 @@ const MobileScreenDisplayRooms = () => {
                     name='privateKitchen'
                     id='privateKitchen'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Private Kitchen</span>
+                  <span className='ml-2 fontfm text-gray-600'>Private Kitchen</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -265,9 +322,9 @@ const MobileScreenDisplayRooms = () => {
                     name='privatePool'
                     id='privatePool'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Private Pool</span>
+                  <span className='ml-2 fontfm text-gray-600'>Private Pool</span>
                 </label>
               </div>
               <div className='flex flex-row items-center gap-4 '>
@@ -278,9 +335,9 @@ const MobileScreenDisplayRooms = () => {
                     name='antiTheftKey'
                     id='antiTheftKey'
                     type='checkbox'
-                    className='form-checkbox h-5 w-5 text-blue-600'
+                    className='form-checkbox  h-5 w-5 text-blue-600'
                   />
-                  <span className='ml-2 text-gray-600'>Anti Theft Key</span>
+                  <span className='ml-2 fontfm text-gray-600'>Anti Theft Key</span>
                 </label>
               </div>
 
@@ -289,26 +346,36 @@ const MobileScreenDisplayRooms = () => {
           </div>
         </div>
       )}
-      <div className={`flex flex-col  mt-0 ${filterDiv ? 'h-screen ' : ''}`}>
+      <div className={`flex flex-col  mt-4 ${filterDiv ? 'h-screen ' : ''}`}>
         {hotelData?.map((hotel, index) => {
           return (
-            <div key={index} className=' m-3  border border-gra-600 shadow-md rounded-lg'>
+            <div
+              key={index}
+              className=' px-6 mb-10'
+              onClick={() => navigate('/single-room-details', { state: hotel._id })}
+            >
               <div className='flex overflow-x-scroll'>
                 {hotel?.images?.map((image, index) => (
-                  <img loading='lazy' key={index} src={image} alt={`Image ${index}`} className='w-1/2 h-auto' />
+                  <img
+                    loading='lazy'
+                    key={index}
+                    src={image}
+                    alt={`Image ${index}`}
+                    className='w-full h-auto rounded-2xl'
+                  />
                 ))}
               </div>
-              <div className='w-full grid grid-cols-2 gap-4 '>
-                <div className='p-4'>
-                  <h1 className='font-semibold text-cyan-700 '>{hotel?.hotelName}</h1>
-                  <h1 className='text-gray-400'>
+              <div className='w-full grid gap-4 '>
+                <div className='my-4 px-1'>
+                  <h1 className='font-bold text-cyan-900 fs tracking-wider text-xl'>{hotel?.hotelName}</h1>
+                  <h1 className='text-gray-600 fs tracking-wider text-xs flex  '>
                     {hotel?.place} , {hotel?.city}
                   </h1>
-                  <h1 className='font-semibold'>
-                    {hotel?.price} <span className='font-normal text-gray-500'>/ night</span>
+                  <h1 className='font-semibold mt-2 fontfm'>
+                    {hotel?.price} <span className='font-normal text-gray-500 fs text-xs'>night</span>
                   </h1>
                 </div>
-                <div className=' flex items-end justify-end gap- text-xs  pb-4 pr-2 gap-1'>
+                {/* <div className=' flex items-end justify-end gap- text-xs  pb-4 pr-2 gap-1'>
                   <h1
                     className=' p-1 bg-cyan-700 text-gray-50 w-24 h-6 text-center'
                     onClick={() => navigate('/single-room-details', { state: hotel._id })}
@@ -321,7 +388,7 @@ const MobileScreenDisplayRooms = () => {
                   >
                     viewdetails
                   </h1>
-                </div>
+                </div> */}
               </div>
             </div>
           );

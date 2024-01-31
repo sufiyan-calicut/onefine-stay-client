@@ -20,7 +20,7 @@ function HotelData(props) {
   const [position, setPosition] = useState(0);
   return (
     <div
-      className=' tracking-wider md:h-auto rounded-md overflow-hidden  mb-3 flex flex-col md:flex-row md:flex-wrap bg-white shadow-md hover:shadow-xl cursor-pointer duration-500 hotelData '
+      className=' tracking-wider md:h-auto rounded-md overflow-hidden  mb-3 flex  bg-white shadow-md hover:shadow-xl cursor-pointer duration-500 hotelData '
      
     >
       <div className=' flex '>

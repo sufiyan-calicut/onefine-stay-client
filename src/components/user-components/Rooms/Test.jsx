@@ -233,7 +233,9 @@ const HotelList = () => {
             </div>
           )}
         </div>
+        
       </div>
+      
     </div>
   );
 };

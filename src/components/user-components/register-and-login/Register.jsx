@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
@@ -16,6 +16,26 @@ const Register = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const userData = {
     name,
     place,
@@ -48,13 +68,21 @@ const Register = () => {
   };
 
   return (
-    <div className='loginCard bg-gradient-to-r bg-gray-100 w-screen h-screen flex items-center justify-center '>
-      <div className='flex pb-10 p-6 bg-white  items-center justify-center   h-auto w-auto  rounded-lg shadow-xl max-w-5xl'>
-        <div className=' w-1/2'>
-          <img src={registerImg} alt='' />
-        </div>
-        <div className=' flex-col w-1/2'>
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5300 1024' width='200' height='60' className='text-blue-700 m-auto'>
+    <div className='loginCard bg-gradient-to-r bg-gray-100 md:min-w-screen md:w-auto md:min-h-screen md:h-auto flex items-center justify-center '>
+      <div className='flex py-6 md:p-6 md:m-4 bg-gray-100  md:bg-white items-center justify-center  h-full w-full md:min-h-3/4 md:min-w-3/4 md:h-auto md:w-auto  rounded-lg shadow-xl  '>
+        {!isMobile && (
+          <div className=' w-1/2'>
+            <img src={registerImg} alt='' />
+          </div>
+        )}
+        <div className=' flex-col w-auto sm:w-1/2 md:w-1/2  '>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 5300 1024'
+            width='200'
+            height='60'
+            className='text-blue-700 m-auto'
+          >
             <path
               className='svg-path'
               fill='#2a2730'
@@ -62,11 +90,11 @@ const Register = () => {
               fillOpacity='1'
             />
           </svg>
-          <form className='p-4 grid grid-cols-2 gap-3' onSubmit={sendOtp}>
+          <form className='p-4 md:grid md:grid-cols-2 gap-3 md:w-full  ' onSubmit={sendOtp}>
             <div>
               <label className='block ml-3 fontfm '>Name </label>
               <input
-                className='block mb-3  text-center w-full '
+                className='block mb-3 text-sm fontfm  text-center w-full '
                 type='text'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -76,7 +104,7 @@ const Register = () => {
             <div>
               <label className='block ml-3 fontfm '>Place </label>
               <input
-                className='block mb-3  text-center w-full '
+                className='block mb-3 text-sm fontfm  text-center w-full '
                 type='text'
                 value={place}
                 onChange={(e) => setPlace(e.target.value)}
@@ -86,7 +114,7 @@ const Register = () => {
             <div>
               <label className='block ml-3 fontfm'>Email </label>
               <input
-                className='block mb-3  text-center w-full '
+                className='block mb-3 text-sm fontfm  text-center w-full '
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -96,7 +124,7 @@ const Register = () => {
             <div>
               <label className='block ml-3 fontfm '>Phone </label>
               <input
-                className='block mb-3  text-center w-full '
+                className='block mb-3 text-sm fontfm  text-center w-full '
                 type='text'
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -106,7 +134,7 @@ const Register = () => {
             <div>
               <label className='block ml-3 fontfm  '>Password </label>
               <input
-                className='block mb-3 text-center w-full'
+                className='block mb-3 text-sm fontfm text-center w-full'
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -118,16 +146,16 @@ const Register = () => {
               {' '}
               <label className='block ml-3 fontfm '>Confirm Password </label>
               <input
-                className='block mb-3 text-center w-full'
+                className='block mb-3 text-sm fontfm text-center w-full'
                 type='password'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
-           
+
             <div>
-              <button className='text-white flex-1 w-full text-sm bg-blue-700 mt-2  py-2 px-3 rounded-md  hover:text-white  hover:bg-blue-900  transition duration-500'>
+              <button className='text-white w-full text-sm bg-blue-700 mt-2 py-2 px-3 rounded-md hover:text-white hover:bg-blue-900 transition duration-500'>
                 REGISTER
               </button>
             </div>
@@ -138,6 +166,12 @@ const Register = () => {
               Login
             </Link>
           </p>
+          <div className='bg-gray-30 flex flex-col justify-center items-center'>
+            <h3 className='fontfm '>OR</h3>
+            <button className=' shadow-lg bg-gray-100 flex-1 w-72 max-w-xl text-sm  border text-black mt-2  py-2 px-3 rounded-md  hover:text-white  hover:bg-blue-900  transition duration-500'>
+              Register with Google
+            </button>
+          </div>
         </div>
       </div>
     </div>

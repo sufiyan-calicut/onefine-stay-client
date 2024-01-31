@@ -110,6 +110,9 @@ body a {
 
 /* ............................... */
 
+.fs{
+  font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;;
+}
 .card {
   box-shadow: 0 0 2px grey;
   border-radius: 0 !important;

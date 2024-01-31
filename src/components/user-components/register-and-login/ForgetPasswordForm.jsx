@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { userApi } from '../../../api/userApi';
 import { hideLoading,showLoading } from '../../../reduxToolkit/alertsReducer';
 import { useDispatch } from 'react-redux';
+import './Login.css'
 
 function ForgetPasswordForm() {
   const dispatch = useDispatch();
@@ -34,17 +35,17 @@ function ForgetPasswordForm() {
   };
 
   return (
-    <div className='bg-gradient-to-r from-blue-900 to-slate-900 w-screen h-screen flex items-center justify-center '>
+    <div className='bg-gradient-to-r bg-gray-100 w-screen h-screen flex items-center justify-center '>
       <div className='flex bg-white  items-center  justify-start flex-col h-60 w-80  rounded-lg shadow-lg '>
         <div className=''>
           {' '}
-          <h1 className=' font-semibold text-blue-600 my-6 '>FORGOT PASSWORD?</h1>
+          <h1 className=' font-semibold text-blue-600 my-6 fontfm'>FORGOT PASSWORD?</h1>
         </div>
         <div className=' w-full h-full flex justify-center '>
           <form className='p-4' onSubmit={handleSubmit}>
             <label className='block mb-3 font-normal text-xs'>Enter your registered email </label>
             <input
-              className='block mb-3 '
+              className='block mb-3 rounded-lg '
               type='email'
               placeholder='email:'
               onChange={(e) => setUsermail(e.target.value)}

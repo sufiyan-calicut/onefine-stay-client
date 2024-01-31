@@ -12,7 +12,7 @@ function DisplayRoomsPage() {
     <>
       <Navbar />
       <HotelList />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -31,7 +31,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 1024) {
+      if (window.innerWidth <= 1200) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
@@ -103,8 +103,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className='navbar bg-white z-50 w-46 md:w-full md:pl-10 md:fixed '>
-      <div onClick={() => navigate('/')} className='cursor-pointer'>
+    <nav className='navbar bg-white z-50 w-full md:pl-6 md:fixed '>
+      <div onClick={() => navigate('/')} className='cursor-pointer  '>
         {/* <h1 className='font-bold cursor-default text-orange-700' onClick={() => navigate('/')}>
           Roomie.com
         </h1> */}
@@ -118,7 +118,7 @@ const Navbar = () => {
         </svg>
       </div>
       {!isMobile && (
-        <div className='navbar-links cursor-default'>
+        <div className='navbar-links cursor-default '>
           <div className=''>
             <input
               className='searchInput rounded-l-3xl   flex items-center justify-center text-center w-60 font-normal text-sm tracking-wider text-md fontFm '
@@ -171,20 +171,20 @@ const Navbar = () => {
         </div>
       )}
 
-      <div className='navbar-icons'>
+      <div className='navbar-icons '>
         {!isMobile && (
-          <div className='flex gap-1 mr-10 text-sm'>
+          <div className='flex gap-1 mr-6 text-sm bg-gray-30 min-w-fit h-10'>
             <button
-              className='hover:text-cyan-700'
+              className='hover:text-cyan-700 fontfm'
               onClick={() => {
                 navigate('/hotel-register-form');
               }}
             >
               List your property
             </button>{' '}
-            |
+            <div className='horizontalLine border-r h-2/4 my-auto mx-1 border-gray-300'></div>
             <button
-              className='hover:text-cyan-700'
+              className='hover:text-cyan-700 fontfm'
               onClick={() => {
                 localStorage.removeItem('token');
                 navigate('/login');
@@ -195,40 +195,40 @@ const Navbar = () => {
           </div>
         )}
         {isMobile ? (
-          <div className='flex mx-2'>
-            <div className='flex-1 p-4'></div>
+          <div className='flex mx-2 '>
+            <div className='flex-1 p-4 '></div>
             <div
-              className={`fixed top-0 right-0 bottom-0 w-64 focus:outline-none bg-sky-800 transition-all duration-300 ${
+              className={`fixed top-0 right-0 bottom-0 w-64 focus:outline-none bg-white shadow-lg  transition-all duration-300 ${
                 sidebarVisible ? 'translate-x-0' : 'translate-x-full'
               }`}
             >
-              <div className='flex flex-col justify-cente items-cente  h-full my-16'>
+              <div className='flex flex-col   h-full my-16'>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-gray-200 hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   PROFILE
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-gray-200 hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   BOOKINGS
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-gray-200 hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   WALLET
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-gray-200 hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/hotel-register-form')}
                 >
                   LIST PROPERTY
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-gray-200 hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
                   onClick={() => {
                     localStorage.removeItem('token');
                     navigate('/login');
@@ -241,9 +241,10 @@ const Navbar = () => {
             <div
               className={`${
                 sidebarVisible
-                  ? 'fixed top-4 right-4 w-8 h-8 focus:outline-none  rounded-full flex justify-center items-center cursor-pointer z-'
-                  : ' top-4 right-4 w-8 h-8 focus:outline-none  rounded-full flex justify-center items-center cursor-pointer z-'
+                  ? 'fixed top-4 right-4 w-8 h-8 focus:outline-none  rounded-full flex justify-center items-center '
+                  : 'absolute top-4 right-4 w-8 h-8 focus:outline-none  rounded-full flex justify-center items-center '
               }`}
+              // className='absolute top-4 right-4 w-8 h-8 focus:outline-none  rounded-full flex justify-center items-center cursor-pointer'
               onClick={handleSidebarToggle}
             >
               <img loading='lazy' src={profile} alt='nn' />

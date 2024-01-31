@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,25 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const userData = {
     email,
@@ -46,16 +64,20 @@ const Login = () => {
     }
   };
 
+
+
   return (
     <>
       {/* <Navbar /> */}
 
-      <div className='loginCard min-w-screen min-h-screen w-auto h-auto flex items-center justify-center  offwhite '>
-        <div className='flex h-5/6 w-3/5  rounded-lg shadow-xl bg-white  items-center p-8 '>
-          <div className='imageSide items-center justify-center w-1/2  '>
-            <img src={loginImg} alt='' className='h-fit w-fit max-h-96 object-cover max-w-lg' />
-          </div>
-          <div className='flex  p-6 self-center items-center justify-center flex-col w-'>
+      <div className='loginCard min-w-screen min-h-screen  flex items-center justify-center  offwhite  w-screen-sm bg-gray-100'>
+        <div className='flex m-2 min-h-fit h-full w-full  max-w-4xl  rounded-lg sm:shadow-xl  justify-center  items-center md:p-8  sm:bg-white  '>
+          {!isMobile && (
+            <div className='imageSide items-center justify-center w-1/2 flex  '>
+              <img src={loginImg} alt='' className=' h-48  md:h-fit max-h-96 object-cover max-w-lg' />
+            </div>
+          )}
+          <div className={'flex  p-6  self-center items-center justify-center flex-col '} >
             {/* <h1 className='m-6 font-semibold text-blue-900 text-xl'>SIGN IN</h1> */}
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5300 1024' width='200' height='60'>
               <path
@@ -68,7 +90,7 @@ const Login = () => {
             <form className='p-4 ' onSubmit={handleSubmit}>
               <label className='block ml-3 fontfm'>Email </label>
               <input
-                className='block mb-10 text-center w-full'
+                className='block mb-6 text-center w-full text-sm fontfm'
                 type='email'
                 id='email'
                 name='email'
@@ -103,6 +125,9 @@ const Login = () => {
                 </Link>
               </p>
             </form>
+            <button className='text-black fontfm w-40 text-sm bg-white border mt-2 py-2 px-3 rounded-md hover:text-white hover:bg-blue-900 transition duration-500'>
+              SIGN IN with Google
+            </button>
           </div>
         </div>
       </div>

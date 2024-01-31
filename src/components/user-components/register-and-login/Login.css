@@ -6,5 +6,6 @@
 }
 
 .loginCard input{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.137);
     border-radius: 2rem;
 }
