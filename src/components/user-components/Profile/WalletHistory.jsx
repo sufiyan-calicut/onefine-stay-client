@@ -26,9 +26,9 @@ function WalletHistory() {
   }
 
   return (
-    <div className='w-full md:w-5/6 h-full text-black overflow-auto md:p-10 '>
+    <div className='w-full ml-52 mt-16 md:w-5/6  h-auto  text-black overflow-auto md:p-10 '>
       {walletHistory?.length !== 0 ? (
-        <h1 className='text-center font-sans text-lg mb-4 font-bold tracking-wider text-gray-400'>Wallet History</h1>
+        <h1 className='text-center font-sans  mb-4 font-bold tracking-wider text-gray-800 fontfm text-2xl'>Wallet History</h1>
       ) : (
         <div>
           <h1 className='text-center  font-bold text-gray-500'>You Don't have wallet history!</h1>

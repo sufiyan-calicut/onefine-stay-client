@@ -252,10 +252,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div
-            className=' top-4 right-0 w-8 h-8 focus:outline-none  rounded-full flex justify-end items-center cursor-pointer z-'
+            className=' top-4 right-0 w-9 h-w-9 focus:outline-none  rounded-full flex justify-end items-center cursor-pointer z-'
             onClick={() => navigate('/profile')}
           >
-            <img loading='lazy' src={profile} alt='nn' />
+            <img loading='lazy' src={profile} alt='profile pic' />
           </div>
         )}
       </div>

@@ -23,17 +23,18 @@ function SingleRoom() {
   const [position, setPosition] = useState(0);
   const [wallet, setWallet] = useState(0);
   useEffect(() => {
-    // dispatch(showLoading());
+    dispatch(showLoading());
     const getData = async () => {
       // dispatch(showLoading());
       await userApi
         .post('/fetch-single-room-data', { id: location.state })
         .then((response) => {
-          console.log(response, 'response tester');
+          dispatch(hideLoading());
           setWallet(response?.data.wallet.balance);
           setHotel(response?.data?.data);
         })
         .catch((err) => {
+          dispatch(hideLoading());
           console.log(err);
           dispatch(hideLoading());
         });

@@ -36,7 +36,7 @@ function BookingHistory() {
       });
   };
   return (
-    <div className=' w-full  md:w-5/6 h-full text-black overflow-auto md:p-10 flex items-start justify-center'>
+    <div className=' w-full  sm:ml-40 sm:mt-16  md:w-5/6 bg-gray-100  h-full text-black overflow-scroll md:p-10 flex items-start justify-center'>
       {bookings?.length == 0 ? (
         <div className='font-bold text-gray-500'>You don't have booking history</div>
       ) : (

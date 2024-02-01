@@ -58,8 +58,15 @@ function App() {
     <Router>
       {/* .........................................LOADER COMPONENT....................................... */}
       {loading && (
-        <div className='spinner-parent '>
-          <div className='w-12 h-12 rounded-full animate-spin border-2 border-solid border-blue-500 border-t-transparent shadow-md '></div>
+        // <div className='spinner-parent '>
+        //   <div className='w-12 h-12 rounded-full animate-spin border-2 border-solid border-blue-500 border-t-transparent shadow-md '></div>
+        // </div>
+        <div className='spinner-parent'>
+          <div className='lds-facebook'>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       )}
 
