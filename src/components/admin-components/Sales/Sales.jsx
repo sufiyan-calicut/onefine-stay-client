@@ -109,7 +109,7 @@ const Sales = () => {
           <form id='table' className=' p-4 max-w-full '>
             <table className='table-fixed border-collapse w-full'>
               <thead>
-                <tr className='bg-gray-200'>
+                <tr className='bg-gray-100'>
                   <th className='w-1/6 px-4 py-2 border'>Index</th>
                   <th className='w-1/6 px-4 py-2 border'>Booking ID</th>
                   <th className='w-1/6 px-4 py-2 border'>Customers</th>

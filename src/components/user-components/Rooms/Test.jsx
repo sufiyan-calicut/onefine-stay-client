@@ -82,11 +82,11 @@ const HotelList = () => {
                 <input type='search' placeholder='search' className='p-2 h-1 rounded-xl' />
               </div>
               <div className='flex flex-wrap gap-2 w-60 mt-3'>
-                <div className='w-auto p-2 h-9  bg-gray-200'>kgm</div>
-                <div className='w-auto p-2 h-9  bg-gray-200'>kuttikattoor</div>
-                <div className='w-auto p-2 h-9  bg-gray-200'>medical Collage</div>
-                <div className='w-auto p-2 h-9  bg-gray-200'>Kovoor</div>
-                <div className='w-auto p-2 h-9  bg-gray-200'>Mavoor</div>
+                <div className='w-auto p-2 h-9  bg-gray-100'>kgm</div>
+                <div className='w-auto p-2 h-9  bg-gray-100'>kuttikattoor</div>
+                <div className='w-auto p-2 h-9  bg-gray-100'>medical Collage</div>
+                <div className='w-auto p-2 h-9  bg-gray-100'>Kovoor</div>
+                <div className='w-auto p-2 h-9  bg-gray-100'>Mavoor</div>
               </div>
               <h3 className='text-blue-600 font-sans font-semibold mt-4'>+ View More</h3>
             </div> */}

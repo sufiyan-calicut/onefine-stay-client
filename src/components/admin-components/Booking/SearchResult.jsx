@@ -49,7 +49,7 @@ function SearchResult(props) {
 
   return (
     <>
-      <div className='bg-gray-200 w-full flex justify-around p-2 hover:shadow-md hover:bg-gray-300'>
+      <div className='bg-gray-100 w-full flex justify-around p-2 hover:shadow-md hover:bg-gray-300'>
         <h4>{booking?.bookingId}</h4>
 
         <h4>{booking?.userName}</h4>
@@ -168,7 +168,7 @@ function SearchResult(props) {
           </div>
           {cancelled && (
             <>
-              <div className='border bg-gray-200 p-2 col-span-3 '>
+              <div className='border bg-gray-100 p-2 col-span-3 '>
                 <h1 className='font-semibold'>Reason for cancellation</h1>
                 <h4 className='text-gray-500'>{booking?.message}</h4>
               </div>

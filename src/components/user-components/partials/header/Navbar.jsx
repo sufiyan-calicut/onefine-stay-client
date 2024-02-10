@@ -204,31 +204,31 @@ const Navbar = () => {
             >
               <div className='flex flex-col   h-full my-16'>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-100 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   PROFILE
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-100 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   BOOKINGS
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-100 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/profile')}
                 >
                   WALLET
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-100 font-semibold text-sm tracking-wider'
                   onClick={() => navigate('/hotel-register-form')}
                 >
                   LIST PROPERTY
                 </p>
                 <p
-                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-200 font-semibold text-sm tracking-wider'
+                  className='p-4 focus:text-black duration-300 transition-all hover:text-black text-cyan-900 border-b hover:bg-gray-100 font-semibold text-sm tracking-wider'
                   onClick={() => {
                     localStorage.removeItem('token');
                     navigate('/login');

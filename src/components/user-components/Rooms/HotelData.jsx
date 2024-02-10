@@ -35,9 +35,9 @@ function HotelData(props) {
             <div className=' m-auto catalog-product w-64 h-52 object-cover rounded-sm mr-1 cursor-pointer mb-4 md:mb-0 '>
               <div className='border border-gray-200 p-4  w-full h-full left-0 right-0 mx-auto'>
                 <div className='animate-pulse space-y-2 h-full'>
-                  <div className='bg-gray-200 h-2/3 w-full'></div>
+                  <div className='bg-gray-100 h-2/3 w-full'></div>
                   <div className='flex-1 space-y-2'>
-                    <div className='h-6 bg-gray-200 w-full'></div>
+                    <div className='h-6 bg-gray-100 w-full'></div>
                   </div>
                 </div>
               </div>
@@ -74,21 +74,21 @@ function HotelData(props) {
                 <div className=' m-auto catalog-product w-16 h-16 object-cover  mr-2 cursor-pointer'>
                   <div className='border border-gray-200 p-1  w-full h-full '>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-full w-full'></div>
+                      <div className='bg-gray-100 h-full w-full'></div>
                     </div>
                   </div>
                 </div>
                 <div className=' m-auto catalog-product w-16 h-16 object-cover  mr-2 cursor-pointer'>
                   <div className='border border-gray-200 p-1  w-full h-full '>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-full w-full'></div>
+                      <div className='bg-gray-100 h-full w-full'></div>
                     </div>
                   </div>
                 </div>
                 <div className=' m-auto catalog-product w-16 h-16 object-cover  mr-2 cursor-pointer'>
                   <div className='border border-gray-200 p-1  w-full h-full '>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-full w-full'></div>
+                      <div className='bg-gray-100 h-full w-full'></div>
                     </div>
                   </div>
                 </div>

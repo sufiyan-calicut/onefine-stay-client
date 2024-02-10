@@ -97,7 +97,7 @@ function ListedRooms() {
         rooms?.map((room, index) => (
           <div
             key={index}
-            className='flex flex-row justify-between items-center p-4 bg-gray-200 mx-4 my-2 border hover:border-gray-500 hover:shadow-md duration-300'
+            className='flex flex-row justify-between items-center p-4 bg-gray-100 mx-4 my-2 border hover:border-gray-500 hover:shadow-md duration-300'
           >
             <div className=' w-1/6'>{room?.roomNumber}</div>
             <div className=' w-1/6'>

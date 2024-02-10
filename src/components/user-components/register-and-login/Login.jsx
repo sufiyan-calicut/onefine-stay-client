@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../../../reduxToolkit/alertsReducer';
 // import Navbar from '../partials/header/Navbar';
 import { userApi } from '../../../api/userApi';
-import Navbar from '../partials/Nav/Navbar';
+
 import loginImg from '../../../../public/images/Tourism_Travel_Illustration_PNG_-_Free_Download-removebg-preview.png';
 import './Login.css';
 
@@ -64,20 +64,54 @@ const Login = () => {
     }
   };
 
+  const [copied, setCopied] = useState(false);
+  const passwordRef = useRef(null);
+  const emailRef = useRef(null);
 
+  const handleCopy = () => {
+    const emailToCopy = emailRef.current.innerText;
+    const passToCopy = passwordRef.current.innerText;
+    // const data = emailToCopy ? emailToCopy : passToCopy;
+    setEmail(emailToCopy);
+    setPassword(passToCopy);
 
+    // navigator.clipboard
+    //   .writeText()
+    //   .then(() => setCopied(true))
+    //   .catch((err) => console.error('Failed to copy: ', err));
+  };
   return (
     <>
       {/* <Navbar /> */}
 
-      <div className='loginCard min-w-screen min-h-screen  flex items-center justify-center  offwhite  w-screen-sm bg-gray-100'>
+      <div className='loginCard min-w-screen min-h-screen relative flex items-center justify-center  offwhite  w-screen-sm bg-gray-100'>
+        <div className='absolute top-10 left-10 w-fit fontFm bg-cyan-800 text-gray-100 p-6 shadow-xl rounded-lg'>
+          <p className='fontFm'>
+            Demo Email :{' '}
+            <span className=' fontFm' ref={emailRef}>
+              {' '}
+              cafyizutra@gufum.com
+            </span>
+            <br />
+            Demo Password :{' '}
+            <span className=' fontFm' ref={passwordRef}>
+              qw@123
+            </span>
+          </p>
+          <button
+            onClick={handleCopy}
+            className='text-gray-100 bg-transparent border border-solid border-cyan-700 shadow-lg rounded-md w-fit h-fit py-1 px-4 mt-3 fontFm text-sm'
+          >
+            use it!
+          </button>
+        </div>
         <div className='flex m-2 min-h-fit h-full w-full  max-w-4xl  rounded-lg sm:shadow-xl  justify-center  items-center md:p-8  sm:bg-white  '>
           {!isMobile && (
             <div className='imageSide items-center justify-center w-1/2 flex  '>
               <img src={loginImg} alt='' className=' h-48  md:h-fit max-h-96 object-cover max-w-lg' />
             </div>
           )}
-          <div className={'flex  p-6  self-center items-center justify-center flex-col '} >
+          <div className={'flex  p-6  self-center items-center justify-center flex-col '}>
             {/* <h1 className='m-6 font-semibold text-blue-900 text-xl'>SIGN IN</h1> */}
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5300 1024' width='200' height='60'>
               <path
@@ -120,14 +154,14 @@ const Login = () => {
               </button>
               <p className='mt-4 ml-3 fontfm'>
                 don't have an account?
-                <Link to='/register' className='text-blue-700 ml-1 underline ml-3 fontfm'>
+                <Link to='/register' className='text-blue-700 ml-1 underline fontfm'>
                   Register
                 </Link>
               </p>
             </form>
-            <button className='text-black fontfm w-40 text-sm bg-white border mt-2 py-2 px-3 rounded-md hover:text-white hover:bg-blue-900 transition duration-500'>
+            {/* <button className='text-black fontfm w-40 text-sm bg-white border mt-2 py-2 px-3 rounded-md hover:text-white hover:bg-blue-900 transition duration-500'>
               SIGN IN with Google
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

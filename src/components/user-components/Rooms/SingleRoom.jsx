@@ -173,10 +173,10 @@ function SingleRoom() {
               <div className='w-full  h-full m-auto catalog-product '>
                 <div className='border border-gray-200 p-4  w-full h-full left-0 right-0 mx-auto'>
                   <div className='animate-pulse space-y-2'>
-                    <div className='bg-gray-200 h-48 w-full'></div>
+                    <div className='bg-gray-100 h-48 w-full'></div>
                     <div className='flex-1 space-y-2'>
-                      <div className='h-6 md:h-20 bg-gray-200 w-full'></div>
-                      <div className='h-6 md:h-20 bg-gray-200 w-full'></div>
+                      <div className='h-6 md:h-20 bg-gray-100 w-full'></div>
+                      <div className='h-6 md:h-20 bg-gray-100 w-full'></div>
                     </div>
                   </div>
                 </div>
@@ -199,9 +199,9 @@ function SingleRoom() {
                 <div className='w-full  h-full m-auto catalog-product '>
                   <div className='border border-gray-200 p-4  w-full h-full left-0 right-0 mx-auto'>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-2/3 w-full'></div>
+                      <div className='bg-gray-100 h-2/3 w-full'></div>
                       <div className='flex-1 space-y-2'>
-                        <div className='h-6 bg-gray-200 w-full'></div>
+                        <div className='h-6 bg-gray-100 w-full'></div>
                       </div>
                     </div>
                   </div>
@@ -222,9 +222,9 @@ function SingleRoom() {
                 <div className='w-full  h-full m-auto catalog-product '>
                   <div className='border border-gray-200 p-4  w-full h-full left-0 right-0 mx-auto'>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-2/3 w-full'></div>
+                      <div className='bg-gray-100 h-2/3 w-full'></div>
                       <div className='flex-1 space-y-2'>
-                        <div className='h-6 bg-gray-200 w-full'></div>
+                        <div className='h-6 bg-gray-100 w-full'></div>
                       </div>
                     </div>
                   </div>
@@ -245,9 +245,9 @@ function SingleRoom() {
                 <div className='w-full  h-full m-auto catalog-product '>
                   <div className='border border-gray-200 p-4  w-full h-full left-0 right-0 mx-auto'>
                     <div className='animate-pulse space-y-2 h-full'>
-                      <div className='bg-gray-200 h-2/3 w-full'></div>
+                      <div className='bg-gray-100 h-2/3 w-full'></div>
                       <div className='flex-1 space-y-2'>
-                        <div className='h-6 bg-gray-200 w-full'></div>
+                        <div className='h-6 bg-gray-100 w-full'></div>
                       </div>
                     </div>
                   </div>

@@ -166,12 +166,12 @@ const Register = () => {
               Login
             </Link>
           </p>
-          <div className='bg-gray-30 flex flex-col justify-center items-center'>
+          {/* <div className='bg-gray-30 flex flex-col justify-center items-center'>
             <h3 className='fontfm '>OR</h3>
             <button className=' shadow-lg bg-gray-100 flex-1 w-72 max-w-xl text-sm  border text-black mt-2  py-2 px-3 rounded-md  hover:text-white  hover:bg-blue-900  transition duration-500'>
               Register with Google
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

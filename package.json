@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "v1",
+    "@mui/material": "^5.15.7",
     "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@stripe/stripe-js": "^1.52.1",
@@ -37,6 +40,8 @@
     "react-calendar": "^4.2.1",
     "react-chartjs-2": "^5.2.0",
     "react-content-loader": "^6.2.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",
     "react-hot-toast": "^2.4.0",

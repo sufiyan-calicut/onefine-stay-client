@@ -32,7 +32,7 @@ export default function BookingSearch(props) {
 
   return (
     <div>
-      <div className='bg-gray-200 w-full flex justify-around p-2 hover:shadow-md hover:bg-gray-300'>
+      <div className='bg-gray-100 w-full flex justify-around p-2 hover:shadow-md hover:bg-gray-300'>
         <h4>{data?.bookingId}</h4>
         <h4>{data?.user.name} </h4>
         <h4 onClick={() => setEditDiv(!editDiv)}>

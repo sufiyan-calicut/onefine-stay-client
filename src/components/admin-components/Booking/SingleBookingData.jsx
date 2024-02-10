@@ -167,7 +167,7 @@ function SingleBookingData(props) {
           </div>
           {cancelled && (
             <>
-              <div className='border bg-gray-200 p-2 col-span-3 '>
+              <div className='border bg-gray-100 p-2 col-span-3 '>
                 <h1 className='font-semibold'>Reason for cancellation</h1>
                 <h4 className='text-gray-500'>{booking?.message}</h4>
               </div>
