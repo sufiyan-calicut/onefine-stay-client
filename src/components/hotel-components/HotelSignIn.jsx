@@ -28,6 +28,7 @@ function HotelSignIn() {
           navigate('/hotel/hotel-dashboard');
         })
         .catch((error) => {
+          console.log(error,'ins cathc');
           toast.error(error.response.data.message);
         });
     }
