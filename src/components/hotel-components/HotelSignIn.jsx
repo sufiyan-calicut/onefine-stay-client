@@ -29,7 +29,7 @@ function HotelSignIn() {
         })
         .catch((error) => {
           console.log(error,'ins cathc');
-          toast.error(error.response.data.message);
+          toast.error(error?.response?.data?.message);
         });
     }
   };
