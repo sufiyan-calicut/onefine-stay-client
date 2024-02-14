@@ -35,6 +35,7 @@ const HotelList = () => {
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setAmnities((prevamnities) => ({ ...prevamnities, [name]: checked }));
+    handleSearch();
   };
 
   useEffect(() => {
@@ -233,9 +234,7 @@ const HotelList = () => {
             </div>
           )}
         </div>
-        
       </div>
-      
     </div>
   );
 };
