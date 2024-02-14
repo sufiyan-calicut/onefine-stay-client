@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const hotelApi = axios.create({
-  // baseURL: 'https://roomie-server.onrender.com/api/hotel',
-  baseURL: 'https://kilt-rhinoceros.cyclic.app/api/hotel',
+  baseURL: 'https://https://one-fine-stays.onrender.com/api/hotel',
+  // baseURL: 'https://kilt-rhinoceros.cyclic.app/api/hotel',
   // baseURL: 'http://localhost:4000/api/hotel',
 });
 

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // baseURL: 'https://roomie-server.onrender.com/api',
-  baseURL: 'https://kilt-rhinoceros.cyclic.app/api',
+  baseURL: 'https://one-fine-stays.onrender.com/api',
+  // baseURL: 'https://kilt-rhinoceros.cyclic.app/api',
   // baseURL: 'http://localhost:4000/api/',
 });
 
