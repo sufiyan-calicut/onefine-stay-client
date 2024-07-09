@@ -10,24 +10,40 @@ import MyCalendar from './Calender';
 import profile from '../../../../../public/images/profile.png';
 import './Navbar.css';
 import { FiSearch } from 'react-icons/fi';
-import { connect } from 'react-redux';
+import { IoLocationSharp } from 'react-icons/io5';
+import { showLoading } from '../../../../reduxToolkit/alertsReducer';
+// import { connect } from 'react-redux';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const searchData = useSelector((state) => state.search);
+
   const [openCalendar, setOpenCalendar] = useState(false);
   const [openRoomDiv, setOpenRoomDiv] = useState(false);
+  const [openSuggestion, setOpenSuggestion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [availableCities, setAvailablesCities] = useState([]);
+
   const room = searchData.roomCounts;
   let guest = [...searchData.guestCounts];
   guest = guest?.map((element) => parseInt(element));
   const sum = guest?.reduce((acc, curr) => {
     return acc + parseInt(curr);
   }, 0);
+
   const calenderRef = useRef(null);
   const divRef = useRef(null);
-  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const inputRef = useRef(null);
+  const suggestionRef = useRef(null);
+
+  useEffect(() => {
+    userApi.get('/available-cities').then((res) => {
+      setAvailablesCities(res.data);
+      // console.log(...res.data)
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -68,11 +84,16 @@ const Navbar = () => {
   }
 
   const handleSubmit = async () => {
-    if (!searchData.location) {
-      return toast.error('Give your location in the search bar');
+    if (!searchData.location && !localStorage.getItem('location')) {
+      console.log(searchData.location, localStorage.getItem('location'));
+      return toast.error('Please Search by Place/Hotel');
     }
+
     try {
-      const response = await userApi.post('/fetch-search-data', searchData);
+      const response = await userApi.post('/fetch-search-data', {
+        ...searchData,
+        selectedLocation: localStorage.getItem('location'),
+      });
       if (response.data.data.length === 0) {
         return toast('No data found', { icon: '👏' });
       }
@@ -102,6 +123,34 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(e.target) &&
+        suggestionRef.current &&
+        !suggestionRef.current.contains(e.target)
+      ) {
+        setOpenSuggestion(false);
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
+  const handleCitySelection = (selectedCity) => {
+    // dispatch(showLoading());
+
+    localStorage.setItem('location', selectedCity);
+    dispatch(setLocation(selectedCity));
+    console.log('happening');
+    handleSubmit();
+  };
+
   return (
     <nav className='navbar bg-white z-50 w-full md:pl-6 md:fixed '>
       <div onClick={() => navigate('/')} className='cursor-pointer  '>
@@ -122,14 +171,43 @@ const Navbar = () => {
           <div className=''>
             <input
               className='searchInput rounded-l-3xl   flex items-center justify-center text-center w-60 font-normal text-sm tracking-wider text-md fontFm '
-              placeholder={'ex: trivandrum'}
+              placeholder={'Search City/Hotel'}
               type='text'
-              defaultValue={searchData?.location}
+              value={localStorage.getItem('location')}
+              ref={inputRef}
+              
+              onClick={() => setOpenSuggestion(true)}
               onChange={(e) => {
                 localStorage.setItem('location', e.target.value);
                 dispatch(setLocation(e.target.value));
               }}
             />
+            {openSuggestion && (
+              <div
+                ref={suggestionRef}
+                className={`bg-white border rounded-md p-1 absolute w-60 font-normal
+                   text-sm tracking-wider text-md transition-opacity duration-100 ease-out 
+                   ${openSuggestion ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <div className='flex gap-3 text-sm font-semibold items-center justify-center'>
+                  {' '}
+                  Available Places <IoLocationSharp />
+                </div>
+                <div className='m-1 cursor-pointer gap-2'>
+                  {availableCities?.map((city, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className='h-6 hover:border-b-4 hover:font-semibold'
+                        onClick={() => handleCitySelection(city)}
+                      >
+                        {city}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
           <div
             className='border flex items-center justify-center cursor-pointer border-l-0 border-gray-300 w-60 h-10 p-2'

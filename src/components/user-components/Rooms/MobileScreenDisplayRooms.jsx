@@ -45,7 +45,7 @@ const MobileScreenDisplayRooms = () => {
 
   // const handleSubmit = async () => {
   //   if (!searchData.location) {
-  //     return toast.error('Give your location in the search bar');
+  //     return toast.error('Please Search by Place/Hotel');
   //   }
   //   try {
   //     const response = await userApi.post('/fetch-search-data', searchData);
@@ -65,7 +65,7 @@ const MobileScreenDisplayRooms = () => {
   }, [amnities]);
   const handleSearch = async () => {
     if (!searchData.location) {
-      return toast.error('give your location in search bar');
+      return toast.error('Please Search by Place/Hotel');
     }
 
     dispatch(showLoading());
@@ -103,11 +103,12 @@ const MobileScreenDisplayRooms = () => {
           <div className=' w-3/4 mx-auto my-10'>
             <input
               className='w-full text-center text-xs text-gray-500 fontfm tracking-wider rounded-xl'
-              defaultValue={searchData?.location}
-              placeholder={'ex: Trivandrum'}
+              defaultValue={localStorage.getItem('location')}
+              placeholder={'Ex: Trivandrum'}
               type='text'
               onChange={(e) => dispatch(setLocation(e.target.value))}
             />
+            
             <div className='flex  w-full'>
               <div
                 className='cursor-pointer flex h-10 fontfm items-center justify-center border rounded-xl my-2 border-gray-300 w-1/2 text-xs tracking-tighter text-center p-1'

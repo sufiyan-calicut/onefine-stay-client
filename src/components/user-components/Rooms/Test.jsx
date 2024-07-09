@@ -53,7 +53,7 @@ const HotelList = () => {
 
   const handleSearch = async () => {
     if (!searchData.location) {
-      return toast.error('give your location in search bar');
+      return toast.error('Please Search by Place/Hotel');
     }
 
     dispatch(showLoading());

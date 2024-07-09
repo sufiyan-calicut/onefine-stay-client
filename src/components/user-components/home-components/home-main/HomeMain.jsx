@@ -66,7 +66,7 @@ function HomeMain() {
 
   const handleSubmit = async () => {
     if (!searchData.location) {
-      return toast.error('Give your location in the search bar');
+      return toast.error('Please Search by Place/Hotel');
     }
     try {
       const response = await userApi.post('/fetch-search-data', searchData);
@@ -104,11 +104,14 @@ function HomeMain() {
             <div className=' h-auto w-3/ mx-auto '>
               <input
                 className='w-full text-center text-xs text-gray-500 fontfm tracking-wider rounded-xl'
-                defaultValue={searchData?.location}
-                placeholder={'ex: Trivandrum'}
+                value={localStorage.getItem('location')}
+                defaultValue={localStorage.getItem('location')}
+                placeholder={'Ex: Trivandrum'}
                 type='text'
                 onChange={(e) => dispatch(setLocation(e.target.value))}
               />
+              {/* <div className='bg-yellow-400 p-2 '>hello</div> */}
+
               <div className='flex  w-full'>
                 <div
                   className='cursor-pointer flex h-10 fontfm items-center justify-center border rounded-xl my-2 border-gray-300 w-1/2 text-xs tracking-tighter text-center p-1'
@@ -165,7 +168,13 @@ function HomeMain() {
           <div className='text-center md:text-left mb-10 md:mb-0  '>
             <h3 className='text-3xl text-cyan-900 md:text-3xl block   text-center sm:flex  mb-4 welcome-text '>
               Welcome to{' '}
-              <svg className='mx-auto mt-3 sm:mt-0 sm:mx-0' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5300 1024' width='180' height='30'>
+              <svg
+                className='mx-auto mt-3 sm:mt-0 sm:mx-0'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 5300 1024'
+                width='180'
+                height='30'
+              >
                 <path
                   className='svg-path '
                   fill='#2a2730'
@@ -187,14 +196,12 @@ function HomeMain() {
       <div className='mt-16 md:mx-20 '>
         <div className='flex flex-col md:flex-row items-center justify-center h- md:justify-between bg-white cover-div   '>
           <div className='md:w-1/2 coverpic h- w-full object-cover hidden md:block '>
-            <img
-              loading='lazy'
-              className='w-full  object-cover coverpic bg-white '
-              src={explore}
-            />
+            <img loading='lazy' className='w-full  object-cover coverpic bg-white ' src={explore} />
           </div>
           <div className='text-center md:text-left mb-10 md:mb-0 '>
-            <h3 className='text-3xl text-cyan-900 md:text-3xl block   text-center sm:flex  mb-4 welcome-text'>Explore with Confidence</h3>
+            <h3 className='text-3xl text-cyan-900 md:text-3xl block   text-center sm:flex  mb-4 welcome-text'>
+              Explore with Confidence
+            </h3>
             <p className='text-sm md:text-lg  px:16  py-2 md:py-1 leading-7'>
               Discover your dream destination and plan your vacation with ease using our hotel booking app. We assure a
               comfortable and enjoyable stay with our carefully curated selection of hotels and personalized service.
@@ -202,18 +209,16 @@ function HomeMain() {
             </p>
           </div>
           <div className='md:w-1/2 coverpic md:hidden h- w-full object-cover '>
-            <img
-              loading='lazy'
-              className='w-full  object-cover coverpic bg-white '
-              src={explore}
-            />
+            <img loading='lazy' className='w-full  object-cover coverpic bg-white ' src={explore} />
           </div>
         </div>
       </div>
       <div className='mb-16 md:mx-20 '>
         <div className='flex flex-col md:flex-row items-center justify-center h- md:justify-between bg-white cover-div  '>
           <div className='text-center md:text-left mb-10 md:mb-0  '>
-            <h3 className='text-3xl text-cyan-900 md:text-3xl block   text-center sm:flex  mb-4 welcome-text '>Booking at Your Fingertips</h3>
+            <h3 className='text-3xl text-cyan-900 md:text-3xl block   text-center sm:flex  mb-4 welcome-text '>
+              Booking at Your Fingertips
+            </h3>
 
             <p className='text-sm md:text-lg  px:16  py-2 md:py-1 leading-7'>
               No matter where you are in the world. With our extensive network of trusted partners and cutting-edge
